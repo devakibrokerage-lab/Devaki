@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layers, PieChart, Users, TrendingUp, User } from 'lucide-react'; 
+import { Layers, PieChart, Users, TrendingUp, User } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const NAV_ITEMS = [
@@ -31,14 +31,14 @@ const NavBar = () => {
                     cursor-pointer p-2 lg:px-4 lg:py-1 
                     transition duration-200 ease-in-out relative
                     
-                    ${isActive 
-                        ? 'text-indigo-500 lg:bg-indigo-500/20 rounded-lg' 
+                    ${isActive
+                        ? 'text-indigo-500 lg:bg-indigo-500/20 rounded-lg'
                         : 'text-[var(--nav-text-inactive)] hover:text-[var(--nav-text-hover)] lg:hover:bg-[var(--bg-hover)]'
                     }
                     
-                    ${isActive 
-                        ? 'lg:border-b-4 lg:border-indigo-500' 
-                        : 'lg:border-b-4 lg:border-transparent' 
+                    ${isActive
+                        ? 'lg:border-b-4 lg:border-indigo-500'
+                        : 'lg:border-b-4 lg:border-transparent'
                     }
                 `}
             >
@@ -52,7 +52,10 @@ const NavBar = () => {
         <>
             {/* Desktop Header/Navigation Bar (Visible at the TOP on large screens) */}
             <header className="hidden lg:flex justify-between items-center px-6 py-2 bg-[var(--bg-nav)] border-b border-[var(--border-color)]">
-                <div className="text-xl font-bold text-[var(--text-primary)]">TradeApp</div>
+                <div className="flex items-center gap-2">
+                    <img src="/devaki.svg" alt="Devaki Logo" className="h-8 w-auto" />
+                    <span className="text-xl font-bold text-[var(--text-primary)]">Devaki</span>
+                </div>
                 <nav className="flex space-x-6">
                     {NAV_ITEMS.map(item => (
                         <NavItem key={item.name} item={item} />
