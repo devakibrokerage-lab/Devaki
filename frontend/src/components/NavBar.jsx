@@ -53,7 +53,9 @@ const NavBar = () => {
             {/* Desktop Header/Navigation Bar (Visible at the TOP on large screens) */}
             <header className="hidden lg:flex justify-between items-center px-6 py-2 bg-[var(--bg-nav)] border-b border-[var(--border-color)]">
                 <div className="flex items-center gap-2">
-                    <img src="/devaki.svg" alt="Devaki Logo" className="h-8 w-auto" />
+                    <div className="w-8 h-8 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20 border border-[var(--border-color)]">
+                        <span className="text-white font-bold text-lg font-sans">D</span>
+                    </div>
                     <span className="text-xl font-bold text-[var(--text-primary)]">Devaki</span>
                 </div>
                 <nav className="flex space-x-6">
