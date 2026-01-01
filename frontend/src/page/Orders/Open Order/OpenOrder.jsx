@@ -350,7 +350,7 @@ export default function OpenOrder() {
     <>
       {/* HEADER + EXIT ALL */}
       <div className="flex justify-between items-center mb-2 px-1">
-        <h3 className="text-gray-400 text-sm font-medium">
+        <h3 className="text-[var(--text-secondary)] text-sm font-medium">
           Open Orders ({displayList.length})
         </h3>
 
@@ -418,15 +418,15 @@ export default function OpenOrder() {
                 data.id ||
                 `${data.segment}-${data.security_Id}-${idx}`
               }
-              className="relative bg-[#121a2b] rounded-lg p-3 border border-white/10 hover:bg-[#222a41] transition cursor-pointer"
+              className="relative bg-[var(--bg-secondary)] rounded-lg p-3 border border-[var(--border-color)] hover:bg-[var(--bg-hover)] transition cursor-pointer"
               onClick={() => handleOrderSelect(data)}
             >
               <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r-full bg-fuchsia-500/90" />
 
               <div className="flex items-center justify-between mb-1">
-                <h4 className="text-white font-bold tracking-wide text-sm whitespace-nowrap overflow-hidden text-ellipsis pr-2 flex-1">
+                <h4 className="text-[var(--text-primary)] font-bold tracking-wide text-sm whitespace-nowrap overflow-hidden text-ellipsis pr-2 flex-1">
                   {tradingsymbol || "—"}{" "}
-                  <span className="text-xs text-gray-400">({sideUpper})</span>
+                  <span className="text-xs text-[var(--text-secondary)]">({sideUpper})</span>
                 </h4>
                 <div
                   className={`text-xs font-bold ${pnlColor} whitespace-nowrap flex-shrink-0`}
@@ -436,25 +436,25 @@ export default function OpenOrder() {
               </div>
 
               <div className="mt-1 grid grid-cols-2 gap-y-1 text-[12px]">
-                <div className="text-gray-400">
-                  Qty: <span className="text-white">{qty}</span>
+                <div className="text-[var(--text-secondary)]">
+                  Qty: <span className="text-[var(--text-primary)]">{qty}</span>
                 </div>
-                <div className="text-right text-gray-400">
+                <div className="text-right text-[var(--text-secondary)]">
                   LTP:{" "}
-                  <span className="text-white font-semibold">
+                  <span className="text-[var(--text-primary)] font-semibold">
                     {ltp ? `₹${ltp.toFixed(2)}` : "—"}
                   </span>
                 </div>
-                <div className="text-gray-400">
-                  Avg: <span className="text-white">{money(avg)}</span>
+                <div className="text-[var(--text-secondary)]">
+                  Avg: <span className="text-[var(--text-primary)]">{money(avg)}</span>
                 </div>
-                <div className="text-right text-gray-400">
+                <div className="text-right text-[var(--text-secondary)]">
                   Net P&L:{" "}
                   <span className={`${pnlColor} font-semibold`}>
                     {money(netPnl)}
                   </span>
                 </div>
-                <div className="col-span-2 text-[10px] text-right text-gray-500 mt-1">
+                <div className="col-span-2 text-[10px] text-right text-[var(--text-muted)] mt-1">
                   Est. Brokerage (entry): -{money(totalBrokerage)}
                 </div>
               </div>

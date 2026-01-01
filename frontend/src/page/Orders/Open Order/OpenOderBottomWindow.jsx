@@ -13,7 +13,7 @@ const DetailRow = ({ Icon, label, value, colorClass }) => {
                 {Icon && <Icon className="w-3 h-3 mr-2" />}
                 <span className="text-xs">{label}</span>
             </div>
-            <span className={`text-sm font-medium ${colorClass || "text-white"}`}>
+            <span className={`text-sm font-medium ${colorClass || "text-[var(--text-primary)]"}`}>
                 {value}
             </span>
         </div>
@@ -328,10 +328,10 @@ export default function OpenOrderBottomWindow({ selectedOrder, onClose, sheetDat
     };
 
     return (
-        <div className="open-order-bottom-window fixed bottom-0 left-0 right-0 z-50 bg-[#121A2B] border-t border-white/10 shadow-2xl p-4 transition-transform duration-300">
-            <div className="flex justify-between items-start mb-3 border-b border-white/10 pb-2">
-                <h3 className="text-xl text-white font-bold tracking-wide">{tradingsymbol} ({orderSide})</h3>
-                <button onClick={onClose} className="p-1 rounded-full text-gray-400 hover:text-white transition">
+        <div className="open-order-bottom-window fixed bottom-0 left-0 right-0 z-50 bg-[var(--bg-secondary)] border-t border-[var(--border-color)] shadow-2xl p-4 transition-transform duration-300">
+            <div className="flex justify-between items-start mb-3 border-b border-[var(--border-color)] pb-2">
+                <h3 className="text-xl text-[var(--text-primary)] font-bold tracking-wide">{tradingsymbol} ({orderSide})</h3>
+                <button onClick={onClose} className="p-1 rounded-full text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">
                     <XCircle className="w-6 h-6" />
                 </button>
             </div>
@@ -345,18 +345,18 @@ export default function OpenOrderBottomWindow({ selectedOrder, onClose, sheetDat
             <div className="mb-4 flex justify-between items-end">
                 <div>
                     <p className="text-xl font-bold">
-                        <span className="text-gray-300 mr-1">₹</span>
+                        <span className="text-[var(--text-secondary)] mr-1">₹</span>
                         <span className={pnlColor}>{formattedCMP}</span>
                     </p>
-                    <p className="text-xs text-gray-500">Current Market Price</p>
+                    <p className="text-xs text-[var(--text-secondary)]">Current Market Price</p>
                 </div>
                 <div className="text-right">
                     <p className={`text-xl font-bold ${pnlColor}`}>{money(netPnl)}</p>
-                    <p className="text-xs text-gray-500">Net P&L (after brokerage)</p>
+                    <p className="text-xs text-[var(--text-secondary)]">Net P&L (after brokerage)</p>
                 </div>
             </div>
 
-            <div className="mb-2 p-2 bg-[#1A1F30] rounded-md text-xs">
+            <div className="mb-2 p-2 bg-[var(--bg-primary)] rounded-md text-xs">
                 <DetailRow label="Quantity" value={`${initialQty} shares`} />
                 <DetailRow label="Lots" value={`${lots} lots`} />
                 <DetailRow label="Avg. Buy Price" value={money(initialPrice)} colorClass="text-yellow-300" />
@@ -378,18 +378,18 @@ export default function OpenOrderBottomWindow({ selectedOrder, onClose, sheetDat
                 {(target !== 0 && target != null) && <DetailRow label="Target" value={target} colorClass="text-gray-300" />}
             </div>
 
-            <div className="p-3 bg-[#1F2028] rounded-lg mb-4">
-                <h4 className="text-lg font-semibold mb-3 text-white">MODIFY ORDER</h4>
+            <div className="p-3 bg-[var(--bg-primary)] rounded-lg mb-4">
+                <h4 className="text-lg font-semibold mb-3 text-[var(--text-primary)]">MODIFY ORDER</h4>
                 <div className="space-y-3">
                     <div className="flex items-center space-x-2">
-                        <h6 className='text-lg font-semibold text-white'>Add Lot</h6>
+                        <h6 className='text-lg font-semibold text-[var(--text-primary)]'>Add Lot</h6>
                         <input
                             type="number"
                             min="0"
                             value={addLotInput}
                             onChange={(e) => setAddLotInput(e.target.value)}
                             placeholder="0"
-                            className="flex-1 p-2 bg-[#2A314A] text-white rounded-md transition"
+                            className="flex-1 p-2 bg-[var(--bg-hover)] text-[var(--text-primary)] rounded-md transition"
                             disabled={orderStatus !== 'OPEN'}
                         />
                         <div className="text-xs text-gray-400 italic">
@@ -399,30 +399,30 @@ export default function OpenOrderBottomWindow({ selectedOrder, onClose, sheetDat
 
                     {/* --- SL & TARGET INPUTS (Half-Half) --- */}
                     <div className="flex space-x-2">
-                        <div className="flex-1 flex items-center space-x-2 bg-[#2A314A] p-2 rounded-md">
+                        <div className="flex-1 flex items-center space-x-2 bg-[var(--bg-hover)] p-2 rounded-md">
                             <AlertCircle className="w-4 h-4 text-red-400" />
                             <div className="flex flex-col w-full">
-                                <span className="text-[10px] text-gray-400 uppercase">Stop Loss</span>
+                                <span className="text-[10px] text-[var(--text-secondary)] uppercase">Stop Loss</span>
                                 <input
                                     type="number"
                                     value={slPrice}
                                     onChange={(e) => setSlPrice(e.target.value)}
                                     placeholder="0.00"
-                                    className="bg-transparent text-white font-medium focus:outline-none w-full"
+                                    className="bg-transparent text-[var(--text-primary)] font-medium focus:outline-none w-full"
                                 />
                             </div>
                         </div>
 
-                        <div className="flex-1 flex items-center space-x-2 bg-[#2A314A] p-2 rounded-md">
+                        <div className="flex-1 flex items-center space-x-2 bg-[var(--bg-hover)] p-2 rounded-md">
                             <Target className="w-4 h-4 text-green-400" />
                             <div className="flex flex-col w-full">
-                                <span className="text-[10px] text-gray-400 uppercase">Target</span>
+                                <span className="text-[10px] text-[var(--text-secondary)] uppercase">Target</span>
                                 <input
                                     type="number"
                                     value={targetPrice}
                                     onChange={(e) => setTargetPrice(e.target.value)}
                                     placeholder="0.00"
-                                    className="bg-transparent text-white font-medium focus:outline-none w-full"
+                                    className="bg-transparent text-[var(--text-primary)] font-medium focus:outline-none w-full"
                                 />
                             </div>
                         </div>
@@ -430,8 +430,8 @@ export default function OpenOrderBottomWindow({ selectedOrder, onClose, sheetDat
 
                     {userRole === 'broker' && (
                         <div className="flex items-center">
-                            <Hash className="w-5 h-5 text-gray-400 mr-2" />
-                            <div className="w-75 p-2 bg-[#2A314A] text-white rounded-md transition flex items-center justify-between">
+                            <Hash className="w-5 h-5 text-[var(--text-secondary)] mr-2" />
+                            <div className="w-75 p-2 bg-[var(--bg-hover)] text-[var(--text-primary)] rounded-md transition flex items-center justify-between">
                                 <div className="flex items-center space-x-2">
                                     <span className="text-sm">New Avg. Price</span>
                                 </div>
@@ -442,7 +442,7 @@ export default function OpenOrderBottomWindow({ selectedOrder, onClose, sheetDat
                                             type="number"
                                             value={editPriceInput}
                                             onChange={(e) => setEditPriceInput(e.target.value)}
-                                            className="w-24 bg-[#1F2028] text-white text-sm px-2 py-1 rounded border border-gray-600 focus:outline-none"
+                                            className="w-24 bg-[var(--bg-primary)] text-[var(--text-primary)] text-sm px-2 py-1 rounded border border-[var(--border-color)] focus:outline-none"
                                         />
                                         <button onClick={handlePriceSave} disabled={submitting} className="p-1 rounded bg-green-500/20 text-green-400 hover:bg-green-500/40">
                                             <Check className="w-4 h-4" />

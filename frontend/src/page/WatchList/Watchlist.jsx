@@ -639,7 +639,7 @@ function Watchlist() {
               <span className="text-white font-bold text-lg font-sans">D</span>
             </div>
             <div className="flex flex-col">
-              <h3 className="text-lg font-bold text-[var(--text-primary)] tracking-wide leading-none">Devaki</h3>
+              <h3 className="text-lg font-bold text-[var(--text-primary)] tracking-wide leading-none">DEVAKI</h3>
               <span className="text-[10px] text-[var(--text-secondary)] font-medium tracking-widest uppercase mt-0.5"></span>
             </div>
           </div>
